@@ -1,3 +1,6 @@
+Repositório que criei para aprender a trabalhar com git e node..
+
+
 abrir a pasta admin no vscode e 
 rodar o json server: 
 ```js
