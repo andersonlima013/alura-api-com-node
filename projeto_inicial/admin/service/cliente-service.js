@@ -12,7 +12,7 @@ const listaCliente = () => {
 
 // requisição http para POST de nome e email
 const criaCliente = (nome, email) => {
-    return fetch('http://localhost:3000/profile', {
+    return fetch(`http://localhost:3000/profile`, {
         method: 'POST',
         headers: {
             'Content-type': 'application/json'
@@ -27,6 +27,18 @@ const criaCliente = (nome, email) => {
     })
 }
 
+const deletaCliente = (id) => {
+    return fetch(`http://localhost:3000/profile/${id}`, {
+        method: 'DELETE'
+    })
+}
+
+const detalhaCliente = (id) => {
+    return fetch(`http://localhost:3000/profile/${id}`)
+    .then(resposta => {
+        return resposta.json()
+    })
+}
 /* Exportando um objeto que vai conter todos os métodos do módulo, fazendo com que
 seja necessário usar a notação . nos outros módulos.
 Importante fazer isso pois nesse módulo serão contidos todas as requisições HTTP,
@@ -46,5 +58,7 @@ como a requisição GET está sendo referenciado com a função listaCliente
 */
 export const clienteService = {
     listaCliente,
-    criaCliente
+    criaCliente,
+    deletaCliente,
+    detalhaCliente
 }

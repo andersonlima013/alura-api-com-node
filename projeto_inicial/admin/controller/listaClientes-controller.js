@@ -10,7 +10,7 @@ Ela recebe dois parametros, nome e email.
 Futuramente, para quesito de estudos, eu poderia adicionar mais alguma informação, como
 por exemplo a função dentro da empresa.
 */
-const criaNovaLinha = (nome, email) => {
+const criaNovaLinha = (nome, email, id) => {
     /*Dentro da função de criar a nova linha, temos uma constante que cria literalmente
     uma nova linha "tr" em branco no front.
     Temos também uma const "conteudo" que vai conter todo o conteúdo que será inserido na linha 
@@ -24,13 +24,15 @@ const criaNovaLinha = (nome, email) => {
         <td>${email}</td>
         <td>
             <ul class="tabela__botoes-controle">
-                <li><a href="../telas/edita_cliente.html" class="botao-simples botao-simples--editar">Editar</a></li>
+                <li><a href="../telas/edita_cliente.html?id=${id}" class="botao-simples botao-simples--editar">Editar</a></li>
                 <li><button class="botao-simples botao-simples--excluir" type="button">Excluir</button></li>
             </ul>
         </td>
     `
     // inserindo o conteudo na página utilizando o innerHTML
     linhaNovoCliente.innerHTML = conteudo
+    linhaNovoCliente.dataset.id = id
+    console.log(linhaNovoCliente)
     // retornando com o conteudo preenchido
     return linhaNovoCliente
 }
@@ -39,12 +41,25 @@ const criaNovaLinha = (nome, email) => {
 // o lugar que será inserido toda a informação do conteudo do registro
 const tabela = document.querySelector('[data-tabela]')
 
+tabela.addEventListener('click', (evento) => {
+    let botaoDeletar = evento.target.className == 'botao-simples botao-simples--excluir'
+    if(botaoDeletar){
+        const linhaCliente = evento.target.closest('[data-id]')
+        let id = linhaCliente.dataset.id
+        clienteService.deletaCliente(id)
+        .then(() => {
+            linhaCliente.remove()
+        })
+    }
+    
+})
+
 /*Utilizando o módulo que importamos, vamos passar como referencia na notação . 
 o método de GET para capturar a lista de clientes.
 */
 clienteService.listaCliente()
 .then(data => {
     data.forEach(elemento => {
-    tabela.appendChild(criaNovaLinha(elemento.nome, elemento.email))  
+    tabela.appendChild(criaNovaLinha(elemento.nome, elemento.email, elemento.id))  
 })})
 

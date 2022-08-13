@@ -7,33 +7,13 @@
     },
     {
       "nome": "solange",
-      "email": "solange.lima@telefonica.com",
-      "id": 2
-    },
-    {
-      "nome": "gabriele",
-      "email": "gabriele.cotrim@hotmail.com",
-      "id": 3
-    },
-    {
-      "nome": "gilvan",
-      "email": "gilvagomes.lima@gmail.com",
+      "email": "solange.alura@telefonica.com",
       "id": 4
     },
     {
-      "nome": "vitoria",
-      "email": "vitoriacotrim@unip.com.br",
+      "nome": "gabriele",
+      "email": "gabi.cotrim@teamo.com",
       "id": 5
-    },
-    {
-      "nome": "mateus",
-      "email": "mateus.alves@telefonica.com",
-      "id": 6
-    },
-    {
-      "nome": "esse vai ser excluído ç _ !  ~",
-      "email": "teste @))_tgmaíl.çom",
-      "id": 6
     }
   ]
 }
