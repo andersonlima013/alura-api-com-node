@@ -33,7 +33,7 @@ Importante fazer isso pois nesse módulo serão contidos todas as requisições 
  daí quando se for necessário o uso das requisições GET, POST e DELETE, basta
 importar o módulo clienteService e utilizar a notação . para referenciar.
 
-Ex: import { clienteService } from .../colocar o caminho do módulo que vai conter os métodos
+Ex: import { clienteService } from '../colocar o caminho do módulo que vai conter os métodos'
 
 clienteService.listaCliente()
 .then(data => {
