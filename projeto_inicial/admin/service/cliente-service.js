@@ -39,6 +39,23 @@ const detalhaCliente = (id) => {
         return resposta.json()
     })
 }
+
+const editaCliente = (id, nome, email) => {
+    return fetch(`http://localhost:3000/profile/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            nome: nome,
+            email: email
+        })
+    })
+    .then(resposta => {
+        return resposta.json()
+    })
+}
+
 /* Exportando um objeto que vai conter todos os métodos do módulo, fazendo com que
 seja necessário usar a notação . nos outros módulos.
 Importante fazer isso pois nesse módulo serão contidos todas as requisições HTTP,
@@ -60,5 +77,6 @@ export const clienteService = {
     listaCliente,
     criaCliente,
     deletaCliente,
-    detalhaCliente
+    detalhaCliente,
+    editaCliente
 }
