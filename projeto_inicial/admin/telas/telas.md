@@ -1,0 +1,1 @@
+Tudo que tem a ver com a visualização da aplicação, será alocado aqui na pasta de telas.

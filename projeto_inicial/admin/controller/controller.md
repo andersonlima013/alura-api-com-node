@@ -1,0 +1,1 @@
+Tudo que tem a ver com a visualização no front e também integração com a API, será alocado aqui na pasta de controller.

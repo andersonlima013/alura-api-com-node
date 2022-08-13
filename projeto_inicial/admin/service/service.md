@@ -1,0 +1,1 @@
+Tudo que tem a ver com a conexão com a API, será alocado aqui na pasta de service.
