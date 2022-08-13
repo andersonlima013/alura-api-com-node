@@ -1,4 +1,5 @@
 Repositório que criei para aprender a trabalhar com git e js..
+Este projeto está cheio de comentários e anotações que usarei como referencia durante os estudos..
 
 Comandos uteis:
 
