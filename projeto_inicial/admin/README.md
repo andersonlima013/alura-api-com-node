@@ -1,10 +1,15 @@
-Repositório que criei para aprender a trabalhar com git e node..
+Repositório que criei para aprender a trabalhar com git e js..
 
+Comandos uteis:
 
-abrir a pasta admin no vscode e 
-rodar o json server: 
+Rodar o json server
+
 ```js
-json-server --watch db.json
+npx json-server --watch db.json
 ```
 
-Rodar: browser-sync start --server --file . --host --port 5000 --startPath admin/telas/lista_cliente.html
+
+Comando para rodar um servidor no navegador:
+Nao precisei usar pois ja tinha o live server no vs code
+
+browser-sync start --server --file . --host --port 5000 --startPath admin/telas/lista_cliente.html
