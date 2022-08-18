@@ -40,7 +40,6 @@ const criaNovaLinha = (nome, email, id) => {
 // constante que busca na árvore do DOM pela tag de data-tabela.. assim encontramos
 // o lugar que será inserido toda a informação do conteudo do registro
 const tabela = document.querySelector('[data-tabela]')
-
 tabela.addEventListener('click', (evento) => {
     let botaoDeletar = evento.target.className == 'botao-simples botao-simples--excluir'
     if(botaoDeletar){

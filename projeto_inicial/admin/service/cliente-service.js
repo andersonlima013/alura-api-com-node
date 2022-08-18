@@ -27,12 +27,18 @@ const criaCliente = (nome, email) => {
     })
 }
 
+/* 
+requisição http para DELETE do nome e email
+sempre que você quiser utilizar outra requisição que não seja o GET (padrão do fetch), precisa espeficiar o método do jeito que está descrito abaixo.
+esse ${id} é basicamente a forma de passar qual é o cliente que vamos deletar, utilizando o ID do cliente.
+*/
 const deletaCliente = (id) => {
     return fetch(`http://localhost:3000/profile/${id}`, {
         method: 'DELETE'
     })
 }
 
+// outra requisição GET para poder mostrar na tela de edição de clientes as informações que já temos daquele cliente.
 const detalhaCliente = (id) => {
     return fetch(`http://localhost:3000/profile/${id}`)
     .then(resposta => {
