@@ -46,6 +46,20 @@ const detalhaCliente = (id) => {
     })
 }
 
+/*
+essa função será exportada no fim do módulo de requisições 
+ela serve basicamente para executar as edições passadas como argumento lá no controller editaCliente
+
+aqui fazemos a requisição de PUT (atualização) 
+lembrando sempre que o id do cliente está sendo referenciado no fetch, no fim da URL
+
+para poder fazer o PUT, usamos a mesma coisa do POST (informamos o headers com o tipo de conteudo e o body com o conteudo em formato json)
+
+como o formato json não é interpretado no http (que transfere arquivos de texto), precisamos dar o JSON.stringify no body para transformar o arquivo de json para string,
+sendo assim interpretado pelo navegador
+
+no final temos a ação da promise que vai pegar a resposta do servidor e retornar ela
+*/
 const editaCliente = (id, nome, email) => {
     return fetch(`http://localhost:3000/profile/${id}`, {
         method: 'PUT',
