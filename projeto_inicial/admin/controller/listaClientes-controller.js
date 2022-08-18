@@ -49,8 +49,7 @@ tabela.addEventListener('click', (evento) => {
         .then(() => {
             linhaCliente.remove()
         })
-    }
-    
+    } 
 })
 
 /*Utilizando o módulo que importamos, vamos passar como referencia na notação . 
