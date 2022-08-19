@@ -6,7 +6,10 @@ e trazer as requisições http
 const listaCliente = () => {
     return fetch(`http://localhost:3000/profile`)
     .then(resposta => {
-        return resposta.json()
+        if(resposta.ok) {
+            return resposta.json()
+        }
+        throw new Error('Não foi possivel listar os clientes.')
     })
 }
 
@@ -23,7 +26,11 @@ const criaCliente = (nome, email) => {
         })
     })
     .then(resposta => {
-        return resposta.body
+        if(resposta.ok){
+            return resposta.body
+        }
+        throw new Error('Não foi possível criar um novo cliente')
+        
     })
 }
 
@@ -35,6 +42,10 @@ esse ${id} é basicamente a forma de passar qual é o cliente que vamos deletar,
 const deletaCliente = (id) => {
     return fetch(`http://localhost:3000/profile/${id}`, {
         method: 'DELETE'
+    }).then(resposta => {
+        if(!resposta.ok){
+            throw new Error('Não foi possível deletar o cliente.')
+        }
     })
 }
 
@@ -42,7 +53,10 @@ const deletaCliente = (id) => {
 const detalhaCliente = (id) => {
     return fetch(`http://localhost:3000/profile/${id}`)
     .then(resposta => {
+        if(resposta.ok){
         return resposta.json()
+        }
+        throw new Error('Não conseguimos detalhar o cliente.')
     })
 }
 
@@ -72,7 +86,10 @@ const editaCliente = (id, nome, email) => {
         })
     })
     .then(resposta => {
+        if(resposta.ok){
         return resposta.json()
+        }
+        throw new Error('Não foi possível editar o cliente.')    
     })
 }
 

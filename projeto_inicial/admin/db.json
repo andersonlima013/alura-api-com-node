@@ -6,14 +6,14 @@
       "id": 1
     },
     {
-      "nome": "mami",
-      "email": "solange.alura@telefonica.com",
-      "id": 4
-    },
-    {
       "nome": "gabriele",
       "email": "gabi.cotrim@teamo.com",
       "id": 5
+    },
+    {
+      "nome": "testeFinal",
+      "email": "wooow@wooow.com",
+      "id": 6
     }
   ]
 }

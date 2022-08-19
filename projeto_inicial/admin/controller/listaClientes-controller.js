@@ -40,24 +40,41 @@ const criaNovaLinha = (nome, email, id) => {
 // constante que busca na árvore do DOM pela tag de data-tabela.. assim encontramos
 // o lugar que será inserido toda a informação do conteudo do registro
 const tabela = document.querySelector('[data-tabela]')
-tabela.addEventListener('click', (evento) => {
+
+tabela.addEventListener('click', async (evento) => {
     let botaoDeletar = evento.target.className == 'botao-simples botao-simples--excluir'
     if(botaoDeletar){
-        const linhaCliente = evento.target.closest('[data-id]')
-        let id = linhaCliente.dataset.id
-        clienteService.deletaCliente(id)
-        .then(() => {
+        try{
+            const linhaCliente = evento.target.closest('[data-id]')
+            let id = linhaCliente.dataset.id
+            await clienteService.deletaCliente(id)
             linhaCliente.remove()
-        })
+        }
+        catch(erro){
+            console.log(erro)
+            window.location.href = '../telas/erro.html'
+        }
+
     } 
 })
 
 /*Utilizando o módulo que importamos, vamos passar como referencia na notação . 
 o método de GET para capturar a lista de clientes.
 */
-clienteService.listaCliente()
-.then(data => {
-    data.forEach(elemento => {
-    tabela.appendChild(criaNovaLinha(elemento.nome, elemento.email, elemento.id))  
-})})
+
+const render = async () => {
+    try{
+        const listaClientes = await clienteService.listaCliente()
+
+    listaClientes.forEach(elemento => {
+        tabela.appendChild(criaNovaLinha(elemento.nome, elemento.email, elemento.id))  
+    })
+    }
+    catch(erro){
+        console.log(erro)
+        window.location.href = '../telas/erro.html'
+    }
+}
+
+render()
 

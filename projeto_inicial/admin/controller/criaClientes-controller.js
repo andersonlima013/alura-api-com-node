@@ -9,13 +9,18 @@ usamos aqui o formulario que encontramos na variavel acima para poder adicionar 
 'submit' e com o evento ocorrendo, criamos duas constantes temporárias de nome e email que serão passadas como argumento lá na função 
 que veio exportada de clienteService, criando assim um novo cliente
 */
-formulario.addEventListener('submit', (evento) => {
+formulario.addEventListener('submit', async (evento) => {
     evento.preventDefault()
     const nome = evento.target.querySelector('[data-nome]').value
     const email = evento.target.querySelector('[data-email]').value
 
-    clienteService.criaCliente(nome, email)
-    .then( () => {
+    try{
+        await clienteService.criaCliente(nome, email)
         window.location.href = '../telas/cadastro_concluido.html'
-    })
+    }
+    catch(erro){
+        console.log(erro)
+        window.location.href = '../telas/erro.html'
+    }
+    
 })
